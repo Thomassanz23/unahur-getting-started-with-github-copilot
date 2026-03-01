@@ -50,6 +50,7 @@ def root():
 @app.get("/activities")
 def get_activities():
     return activities
+    s
 
 
 @app.post("/activities/{activity_name}/signup")
