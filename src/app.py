@@ -21,12 +21,9 @@ app.mount("/static", StaticFiles(directory=os.path.join(Path(__file__).parent,
 
 # In-memory activity database
 activities = {
-    "Chess Club": {
-        "description": "Learn strategies and compete in chess tournaments",
-        "schedule": "Fridays, 3:30 PM - 5:00 PM",
-        "max_participants": 12,
-        "participants": ["michael@mergington.edu", "daniel@mergington.edu"]
-    },
+    "football": {"participants": []},
+    "chess": {"participants": []},
+    "swimming": {"participants": []},
     "Programming Class": {
         "description": "Learn programming fundamentals and build software projects",
         "schedule": "Tuesdays and Thursdays, 3:30 PM - 4:30 PM",
@@ -62,6 +59,17 @@ def signup_for_activity(activity_name: str, email: str):
     # Get the specific activity
     activity = activities[activity_name]
 
+    # Normalize email
+    normalized_email = email.strip().lower()
+
+    # Validate student is not already signed up
+    if any(p.strip().lower() == normalized_email for p in activity.get("participants", [])):
+        raise HTTPException(status_code=400, detail="Student already signed up")
+
+    # Validate student is not already signed up
+    if len(activity.get("participants", [])) >= activity.get("max_participants", float('inf')):
+        raise HTTPException(status_code=400, detail="Activity is full")
+    
     # Add student
-    activity["participants"].append(email)
-    return {"message": f"Signed up {email} for {activity_name}"}
+    activity.setdefault("participants", []).append(normalized_email)
+    return {"message": f"Signed up {normalized_email} for {activity_name}"}
