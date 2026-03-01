@@ -21,59 +21,6 @@ app.mount("/static", StaticFiles(directory=os.path.join(Path(__file__).parent,
 
 # In-memory activity database
 activities = {
-    {
-        "football": {"participants": []},
-        "chess": {"participants": []},
-        "swimming": {"participants": []},
-        "basketball": {
-            "description": "Team sport focusing on skills and competition",
-            "schedule": "Mondays and Wednesdays, 4:00 PM - 5:30 PM",
-            "max_participants": 15,
-            "participants": []
-        },
-        "tennis": {
-            "description": "Individual and doubles tennis training",
-            "schedule": "Tuesdays and Thursdays, 3:00 PM - 4:30 PM",
-            "max_participants": 12,
-            "participants": []
-        },
-        "music_club": {
-            "description": "Learn and perform various musical instruments",
-            "schedule": "Wednesdays, 4:00 PM - 5:00 PM",
-            "max_participants": 25,
-            "participants": []
-        },
-        "drama_club": {
-            "description": "Theater and performing arts",
-            "schedule": "Fridays, 3:30 PM - 5:00 PM",
-            "max_participants": 20,
-            "participants": []
-        },
-        "robotics": {
-            "description": "Build and program robots for competitions",
-            "schedule": "Mondays and Thursdays, 4:00 PM - 5:30 PM",
-            "max_participants": 18,
-            "participants": []
-        },
-        "debate_team": {
-            "description": "Develop public speaking and argumentation skills",
-            "schedule": "Tuesdays and Fridays, 3:30 PM - 4:30 PM",
-            "max_participants": 16,
-            "participants": []
-        },
-        "Programming Class": {
-            "description": "Learn programming fundamentals and build software projects",
-            "schedule": "Tuesdays and Thursdays, 3:30 PM - 4:30 PM",
-            "max_participants": 20,
-            "participants": ["emma@mergington.edu", "sophia@mergington.edu"]
-        },
-        "Gym Class": {
-            "description": "Physical education and sports activities",
-            "schedule": "Mondays, Wednesdays, Fridays, 2:00 PM - 3:00 PM",
-            "max_participants": 30,
-            "participants": ["john@mergington.edu", "olivia@mergington.edu"]
-        }
-    }
     "football": {"participants": []},
     "chess": {"participants": []},
     "swimming": {"participants": []},
