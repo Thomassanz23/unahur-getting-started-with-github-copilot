@@ -21,12 +21,9 @@ app.mount("/static", StaticFiles(directory=os.path.join(Path(__file__).parent,
 
 # In-memory activity database
 activities = {
-    "Chess Club": {
-        "description": "Learn strategies and compete in chess tournaments",
-        "schedule": "Fridays, 3:30 PM - 5:00 PM",
-        "max_participants": 12,
-        "participants": ["michael@mergington.edu", "daniel@mergington.edu"]
-    },
+    "football": {"participants": []},
+    "chess": {"participants": []},
+    "swimming": {"participants": []},
     "Programming Class": {
         "description": "Learn programming fundamentals and build software projects",
         "schedule": "Tuesdays and Thursdays, 3:30 PM - 4:30 PM",
@@ -50,7 +47,6 @@ def root():
 @app.get("/activities")
 def get_activities():
     return activities
-    s
 
 
 @app.post("/activities/{activity_name}/signup")
